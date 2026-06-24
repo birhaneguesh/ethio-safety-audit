@@ -1,0 +1,9 @@
+datasets
+pandas==2.2.3
+requests>=2.32.3
+tenacity==8.2.3
+scikit-learn==1.6.0
+reportlab==4.0.9
+python-dotenv==1.0.0
+tqdm==4.66.1
+huggingface_hub==1.19.0
