@@ -61,26 +61,3 @@ echo "HF_TOKEN=hf_your_token_here" > .env   # Get token from huggingface.co/sett
 
 # 4. Run test (5 prompts)
 python code/audit/run_judge_pipeline.py --test_limit 5
-
-## Citation
-
-```bibtex
-@misc{ethiosafety2026,
-  title={Ethio‑Safety Audit: A Localized Benchmark for Amharic LLM Safety},
-  author={Birhane Guesh Weldearegay},
-  year={2026},
-  howpublished={\url{https://github.com/birhaneguesh/ethio-safety-audit}}
-}
-
-**Why:** Anyone who clones or forks the repo needs a citation to credit your work.
-
----
-
-### Contact
-```markdown
-## Contact
-
-For questions, collaboration, or partnership inquiries:
-
-- **Email:** birhaneguesh2015@gmail.com
-- **GitHub Issues:** [github.com/birhaneguesh/ethio-safety-audit/issues](https://github.com/birhaneguesh/ethio-safety-audit/issues)
