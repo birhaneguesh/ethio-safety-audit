@@ -5,6 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Dataset License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![Status: Production](https://img.shields.io/badge/Status-Production-brightgreen.svg)]()
 
 ---
 
@@ -12,7 +13,34 @@
 
 **Ethio‑Safety Audit** is an open‑source toolkit that tests whether AI models can detect Amharic hate speech. Current safety systems, trained mostly on English, miss culturally specific abuse—like insults hidden behind formal language or historical references—risking AI‑amplified ethnic conflict in Ethiopia.
 
-Our audit of 100 validated prompts found that the best open‑weight judge detects only **44.7%** of toxic Amharic content, missing over half; yet it flags **zero** benign prompts as toxic (0% false positives). Novelty lies in our **three‑tier Amharic harm taxonomy** (direct slurs, honorific subversion, coded language) developed with native speakers, and a transparent pipeline that evaluates prompts directly—avoiding the hallucination confounds of response‑based scoring.
+Our audit of **100 validated prompts** (99 valid evaluations) found that the best open‑weight judge (Qwen 72B) detects only **43.6%** of toxic Amharic content, missing over half; yet it flags **zero** benign prompts as toxic (0% false positives). This is the first quantified baseline for Amharic LLM safety.
+
+### Methodological Contribution
+
+Unlike existing safety benchmarks that score model responses (which can hallucinate safe text from toxic prompts), Ethio‑Safety Audit evaluates the **original Amharic prompt directly**. This eliminates the hallucination confound and provides a cleaner measure of whether a model's guardrails would detect a toxic input before generating a response.
+
+---
+
+## Key Results
+
+| Metric | Value |
+| :--- | :--- |
+| **Detection Accuracy** | **43.6%** |
+| **False Negative Rate** | **56.4%** |
+| **Benign False Positive Rate** | **0%** |
+| **Adversarial FNR** | 53.8% |
+| **Cohen's Kappa** | 0.513 (Fair) |
+| **Valid Evaluations** | 99/100 |
+
+**Judge Model:** Qwen/Qwen2.5-72B-Instruct (primary) with meta-llama/Llama-3.3-70B-Instruct as fallback.
+
+### Per‑Tier Detection Accuracy
+
+| Tier | Accuracy |
+| :--- | :--- |
+| Tier 1 (Direct Slurs) | 50.0% |
+| Tier 2 (Honorific Subversion) | 38.5% |
+| Tier 3 (Coded Language) | 41.7% |
 
 ---
 
@@ -34,4 +62,25 @@ echo "HF_TOKEN=hf_your_token_here" > .env   # Get token from huggingface.co/sett
 # 4. Run test (5 prompts)
 python code/audit/run_judge_pipeline.py --test_limit 5
 
+## Citation
 
+```bibtex
+@misc{ethiosafety2026,
+  title={Ethio‑Safety Audit: A Localized Benchmark for Amharic LLM Safety},
+  author={Birhane Guesh Weldearegay},
+  year={2026},
+  howpublished={\url{https://github.com/birhaneguesh/ethio-safety-audit}}
+}
+
+**Why:** Anyone who clones or forks the repo needs a citation to credit your work.
+
+---
+
+### Contact
+```markdown
+## Contact
+
+For questions, collaboration, or partnership inquiries:
+
+- **Email:** birhaneguesh2015@gmail.com
+- **GitHub Issues:** [github.com/birhaneguesh/ethio-safety-audit/issues](https://github.com/birhaneguesh/ethio-safety-audit/issues)
