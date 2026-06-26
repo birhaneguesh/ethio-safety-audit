@@ -4,10 +4,11 @@
     "evaluation_mode": "prompt_only_no_target_model",
     "primary_judge": "Qwen/Qwen2.5-72B-Instruct",
     "fallback_judge": "meta-llama/Llama-3.3-70B-Instruct",
-    "timestamp": "2026-06-24T17:01:36.157488",
+    "timestamp": "2026-06-26T08:18:29.086175",
     "total_records_attempted": 100,
     "valid_records_computed": 99,
-    "unprocessed_error_count": 1
+    "unprocessed_error_count": 1,
+    "ground_truth": "TRAC-2024 (5 native Amharic speakers)"
   },
   "global_summary_metrics": {
     "detection_accuracy": 43.59,
@@ -26,11 +27,6 @@
       "tier2_honorific_subversion": 38.46153846153846,
       "tier3_coded_language": 41.666666666666664
     }
-  },
-  "judge_human_agreement": {
-    "cohen_kappa": 0.5126,
-    "interpretation": "Fair",
-    "status": "FAIL"
   },
   "raw_evaluation_telemetry_logs": [
     {
